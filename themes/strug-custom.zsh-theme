@@ -2,8 +2,6 @@
 export CLICOLOR=1
 export LSCOLORS=dxFxCxDxBxegedabagacad
 
-local git_branch='$(git_prompt_info)%{$reset_color%}$(git_remote_status)'
-
 # Azure
 az_prompt_info() {
     AZURE_FILE=$HOME/.azure/accessTokens.json
@@ -34,25 +32,25 @@ az_prompt_info() {
         AZURE_CONTEXT="$AZURE_CONTEXT ($AZURE_CONTEXT_GROUP)"
     fi
 
-    echo " ☁️ $AZURE_CONTEXT"
+    echo "%{$FG[032]%}ﴃ $AZURE_CONTEXT%{$reset_color%}"
 }
 
 PROMPT='
-%{$fg[cyan]%}╭─%n@%m %{$reset_color%}%{$fg[magenta]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)$(az_prompt_info)
-%{$fg[cyan]%}╰\$ %{$reset_color%}'
+%{$FG[037]%}╭─%n@%m %{$reset_color%}%{$FG[126]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)%{$reset_color%}$(git_remote_status)$(az_prompt_info)
+%{$FG[037]%}╰\$ %{$reset_color%}'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%} "
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[184]%} "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}%{$fg[red]%} ✘ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✔ %{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_DETAILED=true
-ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_PREFIX="%{$fg[magenta]%}("
-ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_SUFFIX="%{$fg[magenta]%})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_PREFIX="%{$FG[126]%}("
+ZSH_THEME_GIT_PROMPT_REMOTE_STATUS_SUFFIX="%{$FG[126]%})%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=" +"
-ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE_COLOR=%{$fg[cyan]%}
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE_COLOR=%{$FG[037]%}
 
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE=" -"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE_COLOR=%{$fg[red]%}
