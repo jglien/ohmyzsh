@@ -1,3 +1,6 @@
+# Author: John Lien
+# Preferably, use Inconsolata Nerd Font Mono
+
 # terminal coloring
 export CLICOLOR=1
 export LSCOLORS=dxFxCxDxBxegedabagacad
@@ -36,7 +39,7 @@ az_prompt_info() {
 }
 
 PROMPT='
-%{$FG[037]%}╭─%n@%m %{$reset_color%}%{$FG[126]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)%{$reset_color%}$(git_remote_status)$(az_prompt_info)
+%{$FG[037]%}╭─%n@%m %{$reset_color%}%{$FG[126]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)%{$reset_color%}$(az_prompt_info)
 %{$FG[037]%}╰\$ %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[184]%} "
