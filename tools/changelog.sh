@@ -8,16 +8,16 @@
 #* and the display string of such type
 local -A TYPES
 TYPES=(
-  [build]="Build system"
-  [chore]="Chore"
-  [ci]="CI"
-  [docs]="Documentation"
-  [feat]="Features"
-  [fix]="Bug fixes"
-  [perf]="Performance"
-  [refactor]="Refactor"
-  [style]="Style"
-  [test]="Testing"
+  build     "Build system"
+  chore     "Chore"
+  ci        "CI"
+  docs      "Documentation"
+  feat      "Features"
+  fix       "Bug fixes"
+  perf      "Performance"
+  refactor  "Refactor"
+  style     "Style"
+  test      "Testing"
 )
 
 #* Types that will be displayed in their own section,
@@ -248,7 +248,7 @@ function display-release {
     case "$output" in
     raw) printf "$subject" ;;
     # In text mode, highlight (#<issue>) and dim text between `backticks`
-    text) sed -E $'s|#([0-9]+)|\e[32m#\\1\e[0m|g;s|`(.+)`|`\e[2m\\1\e[0m`|g' <<< "$subject" ;;
+    text) sed -E $'s|#([0-9]+)|\e[32m#\\1\e[0m|g;s|`([^`]+)`|`\e[2m\\1\e[0m`|g' <<< "$subject" ;;
     # In markdown mode, link to (#<issue>) issues
     md) sed -E 's|#([0-9]+)|[#\1](https://github.com/ohmyzsh/ohmyzsh/issues/\1)|g' <<< "$subject" ;;
     esac
@@ -274,8 +274,8 @@ function display-release {
     (( $#breaking != 0 )) || return 0
 
     case "$output" in
-    raw) display:type-header "BREAKING CHANGES" ;;
-    text|md) display:type-header "⚠ BREAKING CHANGES" ;;
+    raw) fmt:header "BREAKING CHANGES" 3 ;;
+    text|md) fmt:header "⚠ BREAKING CHANGES" 3 ;;
     esac
 
     local hash subject
