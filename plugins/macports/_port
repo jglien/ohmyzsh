@@ -43,7 +43,6 @@ subcmds=(
 'provides'
 'rdependents'
 'rdeps'
-'reclaim'
 'rpmpackage'
 'search'
 'selfupdate'
