@@ -39,8 +39,8 @@ az_prompt_info() {
 }
 
 PROMPT='
-%{$FG[037]%}╭─%n@%m %{$reset_color%}%{$FG[126]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)%{$reset_color%}$(az_prompt_info)
-%{$FG[037]%}╰\$ %{$reset_color%}'
+%{$FG[037]%}╭─ %n@%m %{$reset_color%}%{$FG[126]%} ${PWD/#$HOME/~} %{$reset_color%}$(git_prompt_info)%{$reset_color%}$(az_prompt_info)
+%{$FG[037]%}╰ \$ %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[184]%} "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
