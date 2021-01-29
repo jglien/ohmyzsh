@@ -1,8 +1,6 @@
 # Plugin owners
 plugins/aws/                        @maksyms
-plugins/genpass/                    @atoponce
-plugins/git-lfs/                    @hellovietduc
+plugins/git-lfs/                    @vietduc01100001
 plugins/gitfast/                    @felipec
 plugins/sdk/                        @rgoldberg
-plugins/universalarchive/           @Konfekt
 plugins/wp-cli/                     @joshmedeski

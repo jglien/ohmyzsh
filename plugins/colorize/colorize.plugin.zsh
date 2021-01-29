@@ -96,7 +96,7 @@ colorize_less() {
         # which assumes that his LESSOPEN has been executed.
         local LESSCLOSE=""
 
-        LESS="$LESS" LESSOPEN="$LESSOPEN" LESSCLOSE="$LESSCLOSE" command less "$@"
+        LESS="$LESS" LESSOPEN="$LESSOPEN" LESSCLOSE="$LESSCLOSE" less "$@"
     }
 
     if [ -t 0 ]; then
